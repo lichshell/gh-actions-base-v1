@@ -1,0 +1,23 @@
+name: A Simple Multi Jobs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-bash:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "This is Hello from the bash script in a GitHub Action Workflow!"
+
+  hello-python:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: print("This is Hello from the python script in a GitHub Action Workflow!")
+        shell: python
+
+  hello-js:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: "This is Hello from the JS in a GitHub Action Workflow!"
